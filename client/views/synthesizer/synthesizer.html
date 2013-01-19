@@ -13,13 +13,16 @@
     <h2>Osc 2</h2>
   </div>
   </section>
-  <section>
+  <section id="filter">
   <div class="header">
     <h2>Filter</h2>
   </div>
   <div class="controls">
     <div id="filterFrequency"></div>
     <div id="filterEnvelope" class="envelope">
+      {{#constant}}
+      <canvas id="filterEnvelopeCanvas"></canvas>
+      {{/constant}}
       <div class="attack slider"></div>
       <div class="decay slider"></div>
       <div class="sustain slider"></div>

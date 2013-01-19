@@ -69,3 +69,4 @@ Template.synthesizer.rendered = ->
     value: synthesizer.filterEnvelope.release
     slide: (event, ui) ->
       synthesizer.filterEnvelope.release = ui.value
+  new EnvelopeCanvas @find('#filterEnvelopeCanvas'), synthesizer.filterEnvelope

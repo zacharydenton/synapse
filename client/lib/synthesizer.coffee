@@ -23,6 +23,11 @@ class Synthesizer
     @osc2.start 0
 
     @oscRatio = 1.0
+    @ampEnvelope =
+      attack: 0.001
+      decay: 0.1
+      sustain: 0.7
+      release: 0.4
     @setParams params
 
   setParams: (params) ->
@@ -47,5 +52,26 @@ class Synthesizer
     if params.filterResonance?
       @filter.Q.value = params.filterResonance
 
+    if params.ampEnvelope?
+      @ampEnvelope = params.ampEnvelope
+
+  noteOn: (note) ->
+    time = audioContext.currentTime
+
+    @osc1.frequency.value = noteToFrequency note
+    @osc2.frequency.value = @oscRatio * noteToFrequency note
+
+    @output.gain.value = 0.0
+    @output.gain.linearRampToValueAtTime 1.0, time + @ampEnvelope.attack
+    @output.gain.setTargetAtTime @ampEnvelope.sustain, time + @ampEnvelope.attack + @ampEnvelope.decay, 0.3
+
+  noteOff: (note) ->
+    time = audioContext.currentTime
+    @output.gain.setTargetAtTime 0.0, time + @ampEnvelope.sustain, 0.3
+
   connect: (target) ->
     @output.connect target
+
+noteToFrequency = (note) ->
+  Math.pow(2, (note - 69) / 12) * 440.0
+

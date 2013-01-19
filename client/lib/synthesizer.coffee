@@ -19,21 +19,29 @@ class Synthesizer
     @mixAmp.connect @filter
     @filter.connect @output
 
+    @output.gain.value = 0
     @osc1.start 0
     @osc2.start 0
 
     @oscRatio = 1.0
     @ampEnvelope =
-      attack: 0.001
-      decay: 0.1
-      sustain: 0.7
-      release: 0.4
+      attack: 0.002
+      decay: 0.03
+      sustain: 0.9
+      release: 0.6
+    params ?=
+      osc1Type: @osc1.SAWTOOTH
+      osc2Type: @osc1.SAWTOOTH
+      oscRatio: 1.03
+      filterFrequency: 500.0
     @setParams params
 
   setParams: (params) ->
     params ?= {}
     if params.osc1Type?
+      console.log @osc1.type
       @osc1.type = params.osc1Type
+      console.log @osc1.type
     if params.osc2Type?
       @osc2.type = params.osc2Type
 
@@ -61,13 +69,13 @@ class Synthesizer
     @osc1.frequency.value = noteToFrequency note
     @osc2.frequency.value = @oscRatio * noteToFrequency note
 
-    @output.gain.value = 0.0
+    @output.gain.cancelScheduledValues time
     @output.gain.linearRampToValueAtTime 1.0, time + @ampEnvelope.attack
-    @output.gain.setTargetAtTime @ampEnvelope.sustain, time + @ampEnvelope.attack + @ampEnvelope.decay, 0.3
+    @output.gain.linearRampToValueAtTime @ampEnvelope.sustain, time + @ampEnvelope.attack + @ampEnvelope.decay
 
   noteOff: (note) ->
     time = audioContext.currentTime
-    @output.gain.setTargetAtTime 0.0, time + @ampEnvelope.sustain, 0.3
+    @output.gain.linearRampToValueAtTime 0.0, time + @ampEnvelope.sustain
 
   connect: (target) ->
     @output.connect target

@@ -65,7 +65,6 @@ Template.synthesizer.rendered = ->
 
   $('#filterEnvelope .attack').slider
     orientation: 'vertical'
-    range: 'min'
     animate: true
     min: 0.0
     max: 2.0
@@ -75,7 +74,6 @@ Template.synthesizer.rendered = ->
       synthesizer.filterEnvelope.attack = ui.value
   $('#filterEnvelope .decay').slider
     orientation: 'vertical'
-    range: 'min'
     animate: true
     min: 0.0
     max: 2.0
@@ -85,7 +83,6 @@ Template.synthesizer.rendered = ->
       synthesizer.filterEnvelope.decay = ui.value
   $('#filterEnvelope .sustain').slider
     orientation: 'vertical'
-    range: 'min'
     animate: true
     min: 0.0
     max: 1.0
@@ -95,7 +92,6 @@ Template.synthesizer.rendered = ->
       synthesizer.filterEnvelope.sustain = ui.value
   $('#filterEnvelope .release').slider
     orientation: 'vertical'
-    range: 'min'
     animate: true
     min: 0.0
     max: 10.0

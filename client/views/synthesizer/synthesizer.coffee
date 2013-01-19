@@ -1,6 +1,8 @@
 Meteor.startup ->
   window.synthesizer = new Synthesizer()
-  synthesizer.connect masterGainNode
+  window.effectsPipeline = new EffectsPipeline()
+  synthesizer.connect effectsPipeline.input
+  effectsPipeline.connect masterGainNode
   window.recorder = new Recorder masterGainNode,
     workerPath: '/js/Recorderjs/recorderWorker.js'
 

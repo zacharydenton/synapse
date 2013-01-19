@@ -29,8 +29,43 @@ Template.synthesizer.rendered = ->
       synthesizer.setParams
         filterFrequency: ui.value
 
-  $('.envelope .slider').each ->
-    $(this).slider
-      orientation: 'vertical'
-      range: 'min'
-      animate: true
+  $('#filterEnvelope .attack').slider
+    orientation: 'vertical'
+    range: 'min'
+    animate: true
+    min: 0.0
+    max: 2.0
+    step: 0.01
+    value: synthesizer.filterEnvelope.attack
+    slide: (event, ui) ->
+      synthesizer.filterEnvelope.attack = ui.value
+  $('#filterEnvelope .decay').slider
+    orientation: 'vertical'
+    range: 'min'
+    animate: true
+    min: 0.0
+    max: 2.0
+    step: 0.01
+    value: synthesizer.filterEnvelope.decay
+    slide: (event, ui) ->
+      synthesizer.filterEnvelope.decay = ui.value
+  $('#filterEnvelope .sustain').slider
+    orientation: 'vertical'
+    range: 'min'
+    animate: true
+    min: 0.0
+    max: 1.0
+    step: 0.01
+    value: synthesizer.filterEnvelope.sustain
+    slide: (event, ui) ->
+      synthesizer.filterEnvelope.sustain = ui.value
+  $('#filterEnvelope .release').slider
+    orientation: 'vertical'
+    range: 'min'
+    animate: true
+    min: 0.0
+    max: 10.0
+    step: 0.1
+    value: synthesizer.filterEnvelope.release
+    slide: (event, ui) ->
+      synthesizer.filterEnvelope.release = ui.value

@@ -1,5 +1,23 @@
 @sidebarWidth: 360px;
 
+.rotate {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+
+	/* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+
+	/* Should be unset in IE9+ I think. */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
 html, body {
 	height: 100%;
 	margin: 0;
@@ -23,5 +41,44 @@ html, body {
 	right: 0;
 	width: @sidebarWidth;
 	height: 100%;
-	background: grey;
+	background: url('/img/noise.png') #2b2f32;
+
+	section {
+		background: url('/img/noise.png') #323539;
+		margin: 10px;
+		height: 200px;
+		border-radius: 10px;
+
+		.header {
+			.rotate;
+			width: 200px;
+			top: 89px;
+			position: relative;
+			left: -89px;
+			text-align: center;
+			text-transform: uppercase;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			background: url('/img/noise.png') #5d6165;
+
+			h2 {
+				font-size: 20px;
+				font-family: 'Orbitron', sans-serif;
+				font-weight: 900;
+				color: #eff0f4;
+				display: inline;
+				background: url('/img/noise.png') #323539;
+				top: 5px;
+				padding: 3px 12px;
+				position: relative;
+				border-top-left-radius: 6px;
+				border-top-right-radius: 6px;
+				line-height: 24px;
+			}
+		}
+
+		.controls {
+			padding: 16px 42px;
+		}
+	}
 }

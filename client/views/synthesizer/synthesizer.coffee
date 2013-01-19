@@ -9,3 +9,6 @@ Meteor.startup ->
     noteOff: (note) ->
       synthesizer.noteOff note
       visualization.noteOff note
+
+Template.synthesizer.rendered = ->
+  $('.knob').knob()

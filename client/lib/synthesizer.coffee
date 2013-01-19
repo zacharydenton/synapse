@@ -39,9 +39,7 @@ class Synthesizer
   setParams: (params) ->
     params ?= {}
     if params.osc1Type?
-      console.log @osc1.type
       @osc1.type = params.osc1Type
-      console.log @osc1.type
     if params.osc2Type?
       @osc2.type = params.osc2Type
 

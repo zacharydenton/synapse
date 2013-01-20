@@ -1,7 +1,7 @@
-class TypeKnob
+class OscillatorKnob
   constructor: (@canvas, @target) ->
     @ctx = @canvas.getContext '2d'
-    @index = 1
+    @index = Math.floor(Math.random() * 4)
     @thickness = 5
     @functions = [Math.sin, @square, @saw, @triangle]
     @click()

@@ -31,7 +31,10 @@
     <h2>Filter</h2>
   </div>
   <div class="controls">
-    <br>
+    <h5 class="type">TYPE</h5>
+    <h5 class="resonance">RESONANCE</h5>
+    <canvas width=75 height=75 id="filterType"></canvas>
+    <div id="filterResonance"><div value=100 class="knob" data-thickness=.12 data-width=70 data-height=70 data-displayInput=false data-angleOffset=180></div></div>
     <div id="filterFrequency"></div>
     <div id="filterEnvelope" class="envelope">
       {{#constant}}

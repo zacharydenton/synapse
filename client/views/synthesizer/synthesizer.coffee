@@ -111,6 +111,12 @@ Template.synthesizer.rendered = ->
       synthesizer.filterEnvelope.release = ui.value
 
   new EnvelopeCanvas @find('#filterEnvelopeCanvas'), synthesizer.filterEnvelope
-  new TypeKnob @find('#osc1Type'), synthesizer.osc1
-  new TypeKnob @find('#osc2Type'), synthesizer.osc2
+  new OscillatorKnob @find('#osc1Type'), synthesizer.osc1
+  new OscillatorKnob @find('#osc2Type'), synthesizer.osc2
 
+  new FilterKnob @find('#filterType'), synthesizer.filter
+
+  $('#filterResonance .knob').knob
+    change: (value) ->
+      synthesizer.filter.Q.value = (value / 100) * 20.0
+  $('#filterResonance .knob').val(50).trigger 'change'

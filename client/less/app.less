@@ -12,6 +12,7 @@ html, body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+  overflow-y: hidden;
 }
 
 #visualization {
@@ -31,6 +32,8 @@ html, body {
 	right: 0;
 	width: @sidebarWidth;
 	height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 	background: url('/img/noise.png') #2b2f32;
 
 	section {
@@ -44,7 +47,7 @@ html, body {
 
 			.header {
 				width: 200px;
-				top: 15px;
+				top: 88px;
 			}
 		}
 
@@ -58,7 +61,7 @@ html, body {
 			}
 
 			#filterEnvelope {
-				margin-top: -96px;
+				margin-top: -86px;
 			}
       h5 {
         display: inline;
@@ -70,6 +73,30 @@ html, body {
         &.resonance {
           left: 113px;
         }
+
+				&.A {
+          position: relative;
+          top: 160px;
+          left: -225px;
+				}
+
+				&.D {
+          position: relative;
+          top: 139px;
+          left: -154px;
+				}
+
+				&.S {
+          position: relative;
+          top: 120px;
+          left: -83px;
+				}
+
+				&.R {
+          position: relative;
+          top: 100px;
+          left: -13px;
+				}
       }
 
       #filterType {
@@ -85,6 +112,7 @@ html, body {
       }
 
       #filterFrequency {
+        top: 5px;
       }
 		}
 
@@ -182,6 +210,9 @@ html, body {
 					float: left;
 					height: 120px;
 					margin: 28px;
+          &.release {
+            margin-right: 0;
+          }
 				} 
 			}
 
@@ -264,34 +295,12 @@ html, body {
 					left:143px;
 				}
 
-				.A {
-					float:left;
-					margin-top:63px;
-					left:29px;
-				}
-
-				.D {
-					float:left;
-					margin-top:63px;
-					left:88px;
-				}
-
-				.S {
-					float:left;
-					margin-top:63px;
-					left:146px;
-				}
-
-				.R {
-					float:left;
-					margin-top:63px;
-					left:204px;
-				}
 		}
 	}
 }
 
 select[name="effect"] {
-	margin-top:-20px;
+	margin-top:30px;
 	margin-left:33px;
+  overflow: hidden;
 }

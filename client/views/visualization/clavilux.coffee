@@ -1,6 +1,8 @@
 class Clavilux
   constructor: (@canvas) ->
     @ctx = @canvas.getContext '2d'
+    @ctx.canvas.width = $('#visualization').width()
+    @ctx.canvas.height = $('#visualization').height()
     @notes = []
     @allNotes = []
     @draw()

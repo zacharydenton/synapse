@@ -20,7 +20,7 @@ class RainbowParticles
       particle = new RainbowParticle new THREE.Color().setHSV((Math.random() + note % 12) / 12, 1.0, 1.0),
         5 + 5 * Math.random(),
         {x: (note * (@canvas.width / 120)) + Math.random() * (@canvas.width / 120), y: @canvas.height},
-        {x: 3.5 * (1 - 2 * Math.random()), y: -10 + 2*Math.random()},
+        {x: 3.5 * (1 - 2 * Math.random()), y: -@canvas.height/85 + 2*Math.random()},
         {x: 0, y: 0.05}
       @particles.push particle
 

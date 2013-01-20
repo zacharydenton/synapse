@@ -19,6 +19,8 @@ html, body {
 	height: 100%;
 
 	canvas {
+		height: 100%;
+		width: 100%;
 		background: black;
 	}
 }
@@ -37,6 +39,15 @@ html, body {
 		height: 200px;
 		border-radius: 10px;
 
+		&#other {
+			height: 200px;
+
+			.header {
+				width: 200px;
+				top: 15px;
+			}
+		}
+
 		&#filter {
 			height: 400px;
 
@@ -47,7 +58,7 @@ html, body {
 			}
 
 			#filterEnvelope {
-				margin-top: 30px;
+				margin-top: -96px;
 			}
       h5 {
         display: inline;
@@ -62,20 +73,18 @@ html, body {
       }
 
       #filterType {
-        position: relative;
-        top: 10px;
-        left: -126px;
+      	float: left;
+      	margin-left:63px;
+      	margin-top: -79px
       }
 
       #filterResonance { 
-        position: relative;
-        display: inline-block;
-        left: 180px;
-        top: -67px;
+      	float: right;
+      	margin-right:45px;
+      	margin-top:-77px;
       }
 
       #filterFrequency {
-        top: -40px;
       }
 		}
 
@@ -165,11 +174,15 @@ html, body {
 
 			.envelope {
 				float: left;
+				canvas {
+					width: 100%;
+					height: 50px;
+				}
 				.slider {
 					float: left;
 					height: 120px;
 					margin: 28px;
-				}  
+				} 
 			}
 
 			#osc1Type, #osc2Type {
@@ -223,6 +236,62 @@ html, body {
 				font-weight: 900;
 				color: #eff0f4;
 			}
+				.sweep {
+					float: left;
+					margin-left:76px;
+				}
+
+				.resonance {
+					float: right;
+					margin-right:33px;
+				}
+
+				.filterT {
+					float: left;
+					margin-top:65px;
+					margin-left:50px;
+				}
+
+				.filterR {
+					float: right;
+					margin-top:65px;
+					margin-right:33px;
+				}
+
+				.cutoff {
+					float: left;
+					margin-top:90px;
+					left:143px;
+				}
+
+				.A {
+					float:left;
+					margin-top:63px;
+					left:29px;
+				}
+
+				.D {
+					float:left;
+					margin-top:63px;
+					left:88px;
+				}
+
+				.S {
+					float:left;
+					margin-top:63px;
+					left:146px;
+				}
+
+				.R {
+					float:left;
+					margin-top:63px;
+					left:204px;
+				}
 		}
 	}
+}
+
+select[name="effect"] {
+	margin-top:-20px;
+	margin-left:33px;
 }

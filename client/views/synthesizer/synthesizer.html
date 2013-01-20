@@ -31,11 +31,16 @@
     <h2>Filter</h2>
   </div>
   <div class="controls">
-    <h5 class="type">TYPE</h5>
-    <h5 class="resonance">RESONANCE</h5>
-    <canvas width=75 height=75 id="filterType"></canvas>
-    <div id="filterResonance"><div value=100 class="knob" data-thickness=.12 data-width=70 data-height=70 data-displayInput=false data-angleOffset=180></div></div>
+    <h5 class="filterT">TYPE</h5>
+    <h5 class="filterR">RESONANCE</h5>
+    <div class="row">
+      <canvas width=75 height=75 id="filterType"></canvas>
+      <div id="filterResonance"><div value=100 class="knob" data-thickness=.12 data-width=70 data-height=70 data-displayInput=false data-angleOffset=180></div></div>
+    </div>
     <div id="filterFrequency"></div>
+    <div class="row">
+      <h5 class="cutoff">CUTOFF</h5>
+    </div>
     <div id="filterEnvelope" class="envelope">
       {{#constant}}
       <canvas width=200 height=100 id="filterEnvelopeCanvas"></canvas>
@@ -44,22 +49,22 @@
       <div class="decay slider"></div>
       <div class="sustain slider"></div>
       <div class="release slider"></div>
+      <h5 class="A">A</h5>
+      <h5 class="D">D</h5>
+      <h5 class="S">S</h5>
+      <h5 class="R">R</h5>
     </div>
   </div>
   </section>
-  <section id="wahwah">
+  <section id="other">
     <div class="header">
-      <h2>WahWah</h2>
+      <h2>OTHER FX</h2>
     </div>
     <div class="controls">
-      <div class="row">
-        <div id="sweep"><div class="knob" data-thickness=.12 data-width=70 data-height=70></div></div>
-        <div id="resonance"><div class="knob" data-thickness=.12 data-width=70 data-height=70></div></div>
-      </div>
-      <div class="row">
-        <h5 class="sweep">SWEEP</h5>
-        <h5 class="resonance">RESONANCE</h5>
-      </div>
+      <select name="effect">
+        <option value="TwitchTV">TwitchTV</option>
+        <option value="own3D">own3D</option>
+      </select>
     </div>
   </section>
 </div>

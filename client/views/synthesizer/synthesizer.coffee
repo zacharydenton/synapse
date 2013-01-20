@@ -103,12 +103,8 @@ Template.synthesizer.rendered = ->
     value: synthesizer.filterEnvelope.release
     slide: (event, ui) ->
       synthesizer.filterEnvelope.release = ui.value
-  new EnvelopeCanvas @find('#filterEnvelopeCanvas'), synthesizer.filterEnvelope
 
-Template.synthesizer.events =
-  'click #osc1Type': ->
-    synthesizer.setParams
-      osc1Type: (synthesizer.osc1.type + 1) % 4
-  'click #osc2Type': ->
-    synthesizer.setParams
-      osc2Type: (synthesizer.osc2.type + 1) % 4
+  new EnvelopeCanvas @find('#filterEnvelopeCanvas'), synthesizer.filterEnvelope
+  new TypeKnob @find('#osc1Type'), synthesizer.osc1
+  new TypeKnob @find('#osc2Type'), synthesizer.osc2
+

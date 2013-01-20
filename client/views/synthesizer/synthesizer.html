@@ -6,8 +6,8 @@
   </div>
   <div class="controls">
     <div class="row">
-      <div class="sine"><img id="osc1Type" src="img/sine.gif" height="75" width="75"></div>
-      <div class="dial"><img src="img/knob.gif" height="75" width="75"></div>
+      <canvas width=75 height=75 id="osc1Type"></canvas>
+      <div id="osc1Gain"><div class="knob" data-thickness=.12 data-width=70 data-height=70></div></div>
     </div>
     <div class="row">
       <h5 class="type">TYPE</h5>
@@ -25,8 +25,8 @@
   </div>
   <div class="controls">
     <div class="row">
-      <div class="sine"><img id="osc2Type" src="img/sine.gif" height="75" width="75"></div>
-      <div class="dial"><img src="img/knob.gif" height="75" width="75"></div>
+      <canvas width=75 height=75 id="osc2Type"></canvas>
+      <div id="osc2Gain"><div class="knob" data-thickness=.12 data-width=70 data-height=70></div></div>
     </div>
     <div class="row">
       <h5 class="type">TYPE</h5>
@@ -43,7 +43,7 @@
     <div id="filterFrequency"></div>
     <div id="filterEnvelope" class="envelope">
       {{#constant}}
-      <canvas id="filterEnvelopeCanvas"></canvas>
+      <canvas width=200 height=100 id="filterEnvelopeCanvas"></canvas>
       {{/constant}}
       <div class="attack slider"></div>
       <div class="decay slider"></div>

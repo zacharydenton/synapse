@@ -3,8 +3,6 @@ Meteor.startup ->
   window.effectsPipeline = new EffectsPipeline()
   synthesizer.connect effectsPipeline.input
   effectsPipeline.connect masterGainNode
-  window.recorder = new Recorder masterGainNode,
-    workerPath: '/js/Recorderjs/recorderWorker.js'
 
   window.keyboard = new VirtualKeyboard
     noteOn: (note) ->
@@ -13,36 +11,6 @@ Meteor.startup ->
     noteOff: (note) ->
       synthesizer.noteOff note
       visualization.noteOff note
-
-  SC.initialize
-    client_id: "aaf9f680f58f7223d3c6c9cf6a47f183"
-    redirect_uri: "http://synapse.meteor.com/callback.html"
-
-  recording = false
-  toggleRecording = ->
-    recording = !recording
-    if recording
-      if SC.accessToken()
-        recorder.record()
-      else
-        SC.connect ->
-          recorder.record()
-    else
-      recorder.stop()
-      recorder.exportWAV (blob) ->
-        filereader = new FileReader()
-        filereader.readAsDataURL blob
-        filereader.onloadend = ->
-          data = 
-            oauth_token: SC.accessToken()
-            format: 'json'
-            track:
-              title: 'Synaptic Transmission'
-              asset_data: filereader.result.replace('data:audio/wav;base64,', '')
-          Meteor.call 'soundcloud', data
-
-  Mousetrap.bind 'space', ->
-    toggleRecording()
 
 Template.synthesizer.rendered = ->
   $('#osc1Gain .knob').knob

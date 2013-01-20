@@ -53,6 +53,56 @@ html, body {
 			}
 		}
 
+    &#oscillator {
+      height: 300px;
+
+      .header {
+        width: 150px;
+        left: -63px;
+
+        &.osc1 {
+          top: 63px;
+          border-top-left-radius:0;
+        }
+        &.osc2 {
+          top: 213px;
+          border-top-right-radius: 0;
+          left: -213px;
+        }
+      }
+
+      h5 {
+        display: inline;
+        position: relative;
+        top: -16px;
+
+        &.type {
+          left: 50px;
+
+          &.osc2 {
+            top: 4px;
+          }
+        }
+
+        &.gain {
+          left: 146px;
+
+          &:last-child {
+            top: 4px;
+          }
+        }
+
+        &.ratio {
+          top: 15px;
+          left: 152px;
+        }
+      }
+
+      #oscRatio {
+        margin-top: 27px;
+      }
+    }
+
 		.header {
 			.rotate;
 			width: 200px;
@@ -83,9 +133,8 @@ html, body {
 		}
 
 		.controls {
-			padding: 16px 12px;
+			padding: 3px 12px;
 			margin-left: 24px;
-			height: 200px;
 			box-sizing: border-box;
 
 			.envelope {
@@ -106,14 +155,21 @@ html, body {
         display: inline;
         width: 75px;
         height: 75px;
-				margin-left:73px;
+        margin-left: 64px;
 			}
+      #osc1Type {
+        margin-top: -9px;
+      }
+
+      #osc2Type {
+        margin-top: 15px;
+      }
 
 			#osc1Gain {
-        margin-top: 10px;
+        margin-top: -7px;
 
         div {
-          margin-left: 57px;
+          margin-left: 72px;
           div {
             position: relative;
           }
@@ -121,10 +177,10 @@ html, body {
 			}
 
       #osc2Gain {
-        margin-top: 15px;
+        margin-top: 19px;
 
         div {
-          margin-left: 57px;
+          margin-left: 72px;
         }
       }
 
@@ -133,27 +189,7 @@ html, body {
 				font-family: 'Orbitron', sans-serif;
 				font-weight: 900;
 				color: #eff0f4;
-				display: inline;
-				background: url('/img/noise.png') #323539;
-				position: relative;
-				border-top-left-radius: 6px;
-				border-top-right-radius: 6px;
 			}
-
-				.type {
-					float: left;
-					margin-left:87px;
-				}
-
-				.gain {
-					float: right;
-					margin-right:62px;
-				}
-
-				.ratio {
-					float:left;
-					margin-left:157px;
-				}
 		}
 	}
 }

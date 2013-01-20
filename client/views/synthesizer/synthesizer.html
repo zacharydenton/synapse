@@ -1,37 +1,29 @@
 <template name="synthesizer">
 <div id="synthesizer">
-  <section>
-  <div class="header">
+  <section id="oscillator">
+  <div class="osc1 header">
     <h2>Osc 1</h2>
   </div>
+  <div class="osc2 header">
+    <h2>Osc 2</h2>
+  </div>
   <div class="controls">
+    <h5 class="type">TYPE</h5>
+    <h5 class="gain">GAIN</h5>
     <div class="row">
       <canvas width=75 height=75 id="osc1Type"></canvas>
-      <div id="osc1Gain"><div class="knob" data-thickness=.12 data-width=70 data-height=70></div></div>
-    </div>
-    <div class="row">
-      <h5 class="type">TYPE</h5>
-      <h5 class="gain">GAIN</h5>
+      <div id="osc1Gain"><div value=100 class="knob" data-thickness=.12 data-width=70 data-height=70 data-displayInput=false data-angleOffset=180></div></div>
     </div>
     <div id="oscRatio"></div>
     <div class="row">
       <h5 class="ratio">RATIO</h5>
     </div>
-  </div>
-  </section>
-  <section>
-  <div class="header">
-    <h2>Osc 2</h2>
-  </div>
-  <div class="controls">
     <div class="row">
       <canvas width=75 height=75 id="osc2Type"></canvas>
-      <div id="osc2Gain"><div class="knob" data-thickness=.12 data-width=70 data-height=70></div></div>
+      <div id="osc2Gain"><div value=100 class="knob" data-thickness=.12 data-width=70 data-height=70 data-displayInput=false data-angleOffset=180></div></div>
     </div>
-    <div class="row">
-      <h5 class="type">TYPE</h5>
-      <h5 class="gain">GAIN</h5>
-    </div>
+    <h5 class="osc2 type">TYPE</h5>
+    <h5 class="gain">GAIN</h5>
   </div>
   </section>
   <section id="filter">

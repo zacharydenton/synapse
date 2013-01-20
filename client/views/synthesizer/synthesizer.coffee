@@ -45,7 +45,13 @@ Meteor.startup ->
     toggleRecording()
 
 Template.synthesizer.rendered = ->
-  $('.knob').knob()
+  $('#osc1Gain .knob').knob
+    change: (value) ->
+      synthesizer.amp1.gain.value = value / 100
+  $('#osc2Gain .knob').knob
+    change: (value) ->
+      synthesizer.amp2.gain.value = value / 100
+  $('.knob').val(100).trigger('change')
   $('#oscRatio').slider
     min: 0.0
     max: 2.0

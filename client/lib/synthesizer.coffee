@@ -11,8 +11,8 @@ class Synthesizer
     @osc2.connect @amp2
 
     @mixAmp = audioContext.createGainNode()
-    @osc1.connect @mixAmp
-    @osc2.connect @mixAmp
+    @amp1.connect @mixAmp
+    @amp2.connect @mixAmp
     @mixAmp.gain.value = 0.5 # to produce a maximum output of 1.0
 
     @filter = audioContext.createBiquadFilter()
